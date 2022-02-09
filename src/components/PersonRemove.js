@@ -1,0 +1,34 @@
+import React, { Component } from "react";
+import API from "../api";
+
+class PersonRemove extends Component {
+  state = {
+    id: "",
+  };
+  handleChange = (event) => {
+    this.setState({ id: event.target.value });
+  };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    API.delete(`users/${this.state.id}`).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Person ID:
+            <input type="text" name="id" onChange={this.handleChange} />
+          </label>
+          <button type="submit">Remove Person</button>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default PersonRemove;
