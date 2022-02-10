@@ -30,11 +30,11 @@ class AddFlow extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     // const flow_data = this.state.flow_data
- 
+
     axios.post("http://127.0.0.1:8000/marketing/automatedflows", this.state.flow_data).then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });
+      console.log(res);
+      console.log(res.data);
+    });
   };
   render() {
     return (
